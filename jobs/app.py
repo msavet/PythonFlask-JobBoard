@@ -24,9 +24,15 @@ def execute_sql():
         results = connection.commit()
     else:
         results = (cursor.fetchone(), single, cursor.fetchall())
-        cursor.close
+        cursor.close()
         return results
 @app.route('/')
 @app.route('/jobs')
 def jobs():
     return render_template('index.html')
+
+def close_connection():
+    exception = []
+    connection = getattr(g, '_connection', None)
+    if connection != None:
+        conn.close()

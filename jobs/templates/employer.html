@@ -1,20 +1,19 @@
 <!-- templates/employer.html -->
 {% extends 'layout.html' %}
+
 {% block content %}
 <div>
-    <h1>
-        <div class='description'>
-            <p>
-                {{ employer['description'] }} 
-            </p>
-        </div>
-    </h1>
+    <h1>{{ employer['name'] }}</h1>
+    <div class='description'>
+        <p>{{ employer['description'] }} </p>
+    </div>
 </div>
+
 <h2>Jobs</h2>
 {{ show_jobs(jobs)}}
-  <h2>Reviews</h2>
-      {% for review in Reviews %}
-      {{% endfor %}}
+
+<h2>Reviews</h2>
+    {% for review in Reviews %}
     <div class="box">
       <article class="media">
         <div class="media-left">
@@ -24,17 +23,17 @@
         </div>
         <div class="media-content">
           <div class="content">
-              <p><strong>title</strong></p>
-              <p><small>status</small></p>
-              <p><small>date</small></p>
-              <p>review</p>
+            <p>
+                <strong>{{ review['title'] }}</strong>
+                <small>{{ review['status'] }}</small>
+                <small>{{ review['date'] }}</small>
+                {{ review['review'] }}
+              </p>
           </div>
         </div>
       </article>
     </div>
-    {# TODO: Remove comment and end for loop
-      {% %}
-    #}
+    {% endfor %}
   <div class="columns">
     <div class="column">
       <a class="button is-info is-pulled-right">Create Review</a>

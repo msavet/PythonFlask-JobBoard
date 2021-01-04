@@ -17,6 +17,7 @@
   </body>
 </html>
 
+{% from '_macros.html' import show_job, show_jobs with context %}
 <!-- templates/_marcos.html -->
 <!-- show_job -->
 <div class="card adjust-height">
@@ -29,6 +30,7 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
 <!-- templates/index.html -->
 {% block content %}

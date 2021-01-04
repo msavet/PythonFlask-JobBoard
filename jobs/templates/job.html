@@ -1,2 +1,4 @@
 {% extends 'layout.html' %}
-    {{ show_job }}
+{% block content %}
+    {{ show_job(job) }}
+{% endblock %}

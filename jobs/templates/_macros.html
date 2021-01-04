@@ -7,23 +7,20 @@
     </header>
     <div class="card-content">
       <div class="content">
-          <p>
-              <a>
-                  {{ job['employer_name'] }}
-
-                  ${{ job['salary'] }}
-
-                  {{ job{'description'} }}
-              </a>
-          </p>
-      </div>
-      <div class="columns is-multiline">
-          {% for job in Jobs %} 
-          <div class= column is-half>
-              show_job(job)
-          </div>
-          {% endfor %}
+            <a>{{ job['employer_name'] }}</a><br>
+                ${{ job['salary'] }}<br>
+                {{ job['description'] }}
       </div>
     </div>
+</div>
+{% endmacro %}
+
+{% macro show_job(job) %}
+<div class="columns is-multiline">
+    {% for job in Jobs %} 
+        <div class= column is-half>
+            {{ show_job(job) }}
+          </div>
+    {% endfor %}
 </div>
 {% endmacro %}
